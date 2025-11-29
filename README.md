@@ -9,7 +9,7 @@
 
 <h4>Project is being built under the supervision of:</h4> Saurav Kumar Singh, Assistant Professor (Grade-I)
 
-<h4>Team Members:</h4>
+#### Team Members:
 - Avnie Agarwal		[221030115]
 - Nitin Kumar		[221030201]
 - Saanch Sapra		[221030441]
