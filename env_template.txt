@@ -1,0 +1,4 @@
+# publishable key is used for frontend connection, and can be kept public
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_cmFwaWQtbWFtbWFsLTc3LmNsZXJrLmFjY291bnRzLmRldiQ
+CLERK_SECRET_KEY=your-clerk-secret-key-here
