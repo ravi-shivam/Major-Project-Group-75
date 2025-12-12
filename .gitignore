@@ -30,5 +30,4 @@ next-env.d.ts
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-# Reference project folder (original LMS source)
 /_ref/
