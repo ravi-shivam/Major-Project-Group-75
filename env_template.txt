@@ -1,4 +1,16 @@
-# publishable key is used for frontend connection, and can be kept public
+# VAPI - Voice AI Platform
+NEXT_PUBLIC_VAPI_WEB_TOKEN=your-vapi-web-token-here
 
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_cmFwaWQtbWFtbWFsLTc3LmNsZXJrLmFjY291bnRzLmRldiQ
+# Clerk - Authentication & User Management
+
+# publishable key is used for frontend connection, and can be kept public
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key-here
 CLERK_SECRET_KEY=your-clerk-secret-key-here
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/
+
+# Supabase - Database & Backend
+# Get your keys from: https://supabase.com/dashboard
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url-here
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key-here

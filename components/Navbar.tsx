@@ -1,19 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
+import Navitems from "./Navitems";
 
 const Navbar = () => {
     return (
         <nav className="navbar">
             <Link href="/">
                 <div className="flex items-center gap-2.5 cursor-pointer">
-                    <Image src="/images/logo.svg" alt="Logo" width={58} height={56}/>
+                    <Image src="/images/logo.svg" alt="Logo" width={102} height={100}/>
                 </div>
             </Link>
 
             <div className="flex items-center gap-8">
-                <p>Home</p>
-                <p>Companions</p>
-                <p>My Profile</p>
+                <Navitems />
                 <p>Sign In</p>
             </div>
         </nav>
