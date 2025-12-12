@@ -78,7 +78,7 @@ export const getRecentSessions = async (limit = 10) => {
 
     if(error) throw new Error(error.message);
 
-    return data.map(({ companions }) => companions);
+    return data.map(({ companions }: { companions: Companion }) => companions);
 }
 
 export const getUserSessions = async (userId: string, limit = 10) => {
@@ -92,7 +92,7 @@ export const getUserSessions = async (userId: string, limit = 10) => {
 
     if(error) throw new Error(error.message);
 
-    return data.map(({ companions }) => companions);
+    return data.map(({ companions }: { companions: Companion }) => companions);
 }
 
 export const getUserCompanions = async (userId: string) => {
@@ -111,7 +111,7 @@ export const newCompanionPermissions = async () => {
     const { userId, has } = await auth();
     const supabase = createSupabaseClient();
 
-    let limit = 0;
+    let limit: number | null = null;
 
     if(has({ plan: 'pro' })) {
         return true;
@@ -119,6 +119,11 @@ export const newCompanionPermissions = async () => {
         limit = 3;
     } else if(has({ feature: "10_companion_limit" })) {
         limit = 10;
+    }
+
+    // If no limit is set (free user), allow companion creation
+    if(limit === null) {
+        return true;
     }
 
     const { data, error } = await supabase
@@ -182,6 +187,6 @@ export const getBookmarkedCompanions = async (userId: string) => {
     throw new Error(error.message);
   }
   // We don't need the bookmarks data, so we return only the companions
-  return data.map(({ companions }) => companions);
+  return data.map(({ companions }: { companions: Companion }) => companions);
 };
 
