@@ -28,6 +28,7 @@ type Companion = {
   voice?: string;
   style?: string;
   created_at?: string;
+  pdf_summary?: string | null;
 };
 
 interface CreateCompanion {
@@ -37,6 +38,7 @@ interface CreateCompanion {
   voice: string;
   style: string;
   duration: number;
+  pdfSummary?: string | null;
 }
 
 interface GetAllCompanions {

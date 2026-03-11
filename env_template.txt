@@ -14,3 +14,6 @@ NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/
 # Get your keys from: https://supabase.com/dashboard
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-url-here
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key-here
+
+# Groq API key (server-side)
+GROQ_API_KEY= YOUR_API_KEY

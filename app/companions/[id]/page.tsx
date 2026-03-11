@@ -1,9 +1,10 @@
-import {getCompanion} from "@/lib/actions/companion.actions";
-import {currentUser} from "@clerk/nextjs/server";
-import {redirect} from "next/navigation";
-import {getSubjectColor} from "@/lib/utils";
+import { getCompanion } from "@/lib/actions/companion.actions";
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import { getSubjectColor } from "@/lib/utils";
 import Image from "next/image";
 import CompanionComponent from "@/components/CompanionComponent";
+import CompanionPdfUploader from "@/components/CompanionPdfUploader";
 
 interface CompanionSessionPageProps {
     params: Promise<{ id: string}>;
@@ -17,7 +18,7 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
     if(!companion || !companion.name) redirect('/companions')
     if(!user) redirect('/sign-in');
 
-    const { name, subject, topic, duration, voice, style } = companion;
+    const { name, subject, topic, duration, voice, style, pdf_summary } = companion;
 
     return (
         <main>
@@ -43,6 +44,11 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
                     {duration} minutes
                 </div>
             </article>
+
+            <CompanionPdfUploader
+                companionId={id}
+                initialSummary={pdf_summary}
+            />
 
             <CompanionComponent
                 {...companion}

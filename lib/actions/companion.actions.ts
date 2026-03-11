@@ -65,6 +65,10 @@ export const addToSessionHistory = async (companionId: string) => {
 
     if(error) throw new Error(error.message);
 
+    // Ensure recent history sections show the latest sessions
+    revalidatePath('/');
+    revalidatePath('/my-profile');
+
     return data;
 }
 
