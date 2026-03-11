@@ -5,8 +5,20 @@ import {getAllCompanions, getRecentSessions} from "@/lib/actions/companion.actio
 import {getSubjectColor} from "@/lib/utils";
 
 const Page = async () => {
-    const companions = await getAllCompanions({ limit: 3 });
-    const recentSessionsCompanions = await getRecentSessions(10);
+    let companions: Companion[] = [];
+    let recentSessionsCompanions: Companion[] = [];
+
+    try {
+        companions = await getAllCompanions({ limit: 3 });
+    } catch (e) {
+        console.error("Failed to load companions:", e);
+    }
+
+    try {
+        recentSessionsCompanions = await getRecentSessions(10);
+    } catch (e) {
+        console.error("Failed to load recent sessions:", e);
+    }
 
   return (
     <main>

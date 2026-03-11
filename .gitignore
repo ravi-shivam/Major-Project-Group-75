@@ -31,3 +31,6 @@ next-env.d.ts
 /dataSources/
 /dataSources.local.xml
 /_ref/
+
+# clerk configuration (can include secrets)
+/.clerk/

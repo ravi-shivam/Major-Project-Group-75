@@ -9,7 +9,12 @@ const CompanionsLibrary = async ({ searchParams }: SearchParams) => {
     const subject = filters.subject ? filters.subject : '';
     const topic = filters.topic ? filters.topic : '';
 
-    const companions = await getAllCompanions({ subject, topic });
+    let companions: Companion[] = [];
+    try {
+        companions = await getAllCompanions({ subject, topic });
+    } catch (e) {
+        console.error("Failed to load companions:", e);
+    }
 
     return (
         <main>
