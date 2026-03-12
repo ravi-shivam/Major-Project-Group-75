@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import Navitems from "./Navitems";
 
-const Navbar = () => {
+const Navbar = async () => {
+    const { userId } = await auth();
     return (
         <nav className="navbar">
             <Link href="/">
@@ -18,14 +20,12 @@ const Navbar = () => {
             </Link>
             <div className="flex items-center gap-8">
                 <Navitems />
-                <SignedOut>
+                {!userId && (
                     <SignInButton>
                         <button className="btn-signin">Sign In</button>
                     </SignInButton>
-                </SignedOut>
-                <SignedIn>
-                    <UserButton />
-                </SignedIn>
+                )}
+                {userId && <UserButton />}
             </div>
         </nav>
     )
