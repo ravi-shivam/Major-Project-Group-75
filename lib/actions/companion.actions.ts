@@ -191,6 +191,6 @@ export const getBookmarkedCompanions = async (userId: string) => {
     throw new Error(error.message);
   }
   // We don't need the bookmarks data, so we return only the companions
-  return data.map(({ companions }: { companions: Companion }) => companions);
+  return data.map((row) => row.companions as unknown as Companion);
 };
 
