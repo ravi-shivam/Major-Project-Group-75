@@ -82,7 +82,7 @@ export const getRecentSessions = async (limit = 10) => {
 
     if(error) throw new Error(error.message);
 
-    return data.map(({ companions }: { companions: Companion }) => companions);
+    return data.map((row) => row.companions as unknown as Companion);
 }
 
 export const getUserSessions = async (userId: string, limit = 10) => {
@@ -96,7 +96,7 @@ export const getUserSessions = async (userId: string, limit = 10) => {
 
     if(error) throw new Error(error.message);
 
-    return data.map(({ companions }: { companions: Companion }) => companions);
+    return data.map((row) => row.companions as unknown as Companion);
 }
 
 export const getUserCompanions = async (userId: string) => {
