@@ -13,13 +13,11 @@ export const createSupabaseClient = () => {
 
     return createClient(url, anonKey, {
         async accessToken() {
-            // Public pages (like `/`) may run without a signed-in user.
-            // Clerk returns `null` in that case; Supabase expects `undefined`.
             try {
                 const token = await (await auth()).getToken();
-                return token ?? undefined;
+                return token ?? null;
             } catch {
-                return undefined;
+                return null;
             }
         },
     });
